@@ -6,9 +6,9 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
-const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
-const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
-const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
+const homeStartingContent = "Leon’s career started at Red Hat, where he worked as a software engineer, and because of his work ethic, he quickly became the youngest manager in the company, overseeing a global team. However, he soon realized that hard work wasn’t enough to cope with the increasing complexity and requirements of the job. Before he knew it, he was in search of ways to go beyond his “fixed ability” and invested heavily in researching everything he could on productivity and management. Because of what he learned, it didn’t take long for him to outpace the demands of his work — and by his mid-20s he had already successfully managed over 150 engineering projects. In the span of less than 5 years, he achieved more than what most project managers could do in 10. That’s when he realized that he could use this knowledge to help anyone in the world who was stuck somewhere in their lives. So, he left his job at Red Hat to dedicate his time to sharing this information through Lifehack.org.";
+const aboutContent = "A user-friendly and customizable blogging platform that suits your needs. Research and explore various routes within your chosen niche. Write detailed and informative blog posts about each route, including important details such as distance, difficulty level, highlights, directions, and any other relevant information.";
+const contactContent = "Contact at email: harshlalawathlhl@gmail.com";
 
 const app = express();
 mongoose.connect("mongodb://127.0.0.1:27017/blogDB");
@@ -25,8 +25,6 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-// let posts = [];
 
 app.get("/", function(req, res){
   blogModel.find().then(function(post){
@@ -61,8 +59,6 @@ app.post("/compose", function(req, res){
   blogModel.find().then(function(content){
     // console.log(content);
   })
-
-  // posts.push(post);
 
   res.redirect("/");
 
